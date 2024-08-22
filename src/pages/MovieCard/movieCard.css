@@ -1,0 +1,21 @@
+.movie-card {
+  margin: 10px;
+  width: 100%;
+}
+
+.movie-card img {
+  width: 100%;
+  border-radius: 10px;
+  transition: transform 0.2s ease-in-out;
+}
+
+.movie-card img:hover {
+  transform: scale(1.05);
+}
+
+.movie-card h3 {
+  text-align: center;
+  margin: 10px 0;
+  font-size: 16px;
+  color: white;
+}
