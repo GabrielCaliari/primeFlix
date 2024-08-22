@@ -61,6 +61,7 @@ const settings = {
   return(
       <div className="listaFilmes">
           <h2>{title}</h2>
+
            <Slider {...settings}>
              {filmes.map((filme) => (
                 <MovieCard key={filme.id} filme={filme}/>

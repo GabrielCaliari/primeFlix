@@ -19,3 +19,8 @@
   font-size: 16px;
   color: white;
 }
+
+.movie-card a {
+  text-decoration: none;
+  color: inherit;
+}
