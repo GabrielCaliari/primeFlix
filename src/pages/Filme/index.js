@@ -1,5 +1,5 @@
 import { useEffect, useState } from "react"
-import { useParams } from "react-router-dom"
+import { useParams, useNavigate } from "react-router-dom"
 import api from "../../services/api"
 import "./filme.css"
 
@@ -7,6 +7,7 @@ function Filme () {
   const { id } = useParams()
   const [loading, setLoading] = useState(true);
   const [filme, setFilme] = useState({});
+  const navigate = useNavigate();
 
 
   useEffect(() => {
@@ -21,7 +22,10 @@ function Filme () {
         setFilme(response.data)
         setLoading(false)
       })
-      .catch((error) => error)
+      .catch(() => {
+        navigate("/", { replace: true })
+        return;
+      })
     }
 
     loadFilme()
@@ -29,10 +33,10 @@ function Filme () {
     return () => {
 
     }
-  })
+  }, [navigate, id])
 
   if(loading){
-    return (
+   return (
       <div className="filme-info">
         <h1>Carregando detalhes...</h1>
       </div>
@@ -50,7 +54,7 @@ function Filme () {
         <div className="area-buttons">
             <button>Salvar</button>
             <button>
-              <a href="#">Trailer</a>
+              <a target="_blank" rel="external noreferrer" href={`https://youtube.com/results?search_query=${filme.title} Trailer`}>Trailer</a>
             </button>
         </div>
     </div>
