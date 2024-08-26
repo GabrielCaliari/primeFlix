@@ -3,7 +3,7 @@ import { Link } from "react-router-dom";
 import "./favoritos.css"
 import { toast } from "react-toastify";
 
-function Favoritos () {
+function Favoritos ({filme}) {
   const [filmes, setFilmes] = useState([]);
 
   useEffect(() => {
@@ -31,10 +31,13 @@ function Favoritos () {
         {filmes.map((item) => {
           return (
             <li key={item.id}>
+                <img src={`https://image.tmdb.org/t/p/original/${item.backdrop_path}`} alt={item.title}
+                style={{ width: '300px', height: '200px', objectFit: 'contain', borderRadius: '10px', marginRight: '10px', objectPosition: 'center' }}
+                />
               <span>{item.title}</span>
 
               <div>
-                <Link to={`/filme/${item.id}`}>Ver detalhes</Link>
+                <Link to={`/filme/${item.id}`} style={{ marginRight: '20px' }}>Ver detalhes</Link>
                 <button onClick={() => excluirFilme(item.id)} >Excluir</button>
               </div>
             </li>
