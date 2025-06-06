@@ -1,0 +1,5 @@
+   name: primeflix
+   type: static
+   build:
+     command: npm run build
+     output: build
