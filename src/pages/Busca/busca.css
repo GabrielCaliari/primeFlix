@@ -1,0 +1,113 @@
+.busca-page {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 40px 24px 48px;
+}
+
+.busca-title {
+  font-family: var(--font-display);
+  font-size: 2rem;
+  letter-spacing: 0.04em;
+  margin-bottom: 24px;
+  color: var(--text-primary);
+}
+
+.busca-form {
+  display: flex;
+  gap: 12px;
+  margin-bottom: 32px;
+  flex-wrap: wrap;
+}
+
+.busca-input {
+  flex: 1;
+  min-width: 200px;
+  padding: 14px 18px;
+  font-size: 1rem;
+  font-family: var(--font-body);
+  color: var(--text-primary);
+  background: var(--bg-card);
+  border: 1px solid var(--border-subtle);
+  border-radius: var(--radius-sm);
+  outline: none;
+  transition: border-color 0.2s ease;
+}
+
+.busca-input::placeholder {
+  color: var(--text-muted);
+}
+
+.busca-input:focus {
+  border-color: var(--accent);
+}
+
+.busca-btn {
+  padding: 14px 28px;
+  font-size: 1rem;
+  font-weight: 600;
+  font-family: var(--font-body);
+  color: var(--bg-primary);
+  background: var(--accent);
+  border: none;
+  border-radius: var(--radius-sm);
+  cursor: pointer;
+  transition: background 0.2s ease, transform 0.15s ease;
+}
+
+.busca-btn:hover:not(:disabled) {
+  background: var(--accent-hover);
+  transform: translateY(-1px);
+}
+
+.busca-btn:disabled {
+  opacity: 0.7;
+  cursor: not-allowed;
+}
+
+.busca-loading {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 16px;
+  padding: 48px;
+  color: var(--text-secondary);
+}
+
+.busca-resultados {
+  margin-top: 8px;
+}
+
+.busca-count {
+  color: var(--text-secondary);
+  margin-bottom: 20px;
+  font-size: 0.95rem;
+}
+
+.busca-vazio {
+  color: var(--text-secondary);
+  font-size: 1.1rem;
+  text-align: center;
+  padding: 48px 24px;
+}
+
+.busca-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(160px, 1fr));
+  gap: 20px;
+}
+
+@media (max-width: 600px) {
+  .busca-page {
+    padding: 24px 16px 40px;
+  }
+  .busca-title {
+    font-size: 1.6rem;
+  }
+  .busca-form {
+    flex-direction: column;
+  }
+  .busca-grid {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 12px;
+  }
+}

@@ -36,11 +36,18 @@ Adicione uma captura de tela do projeto em `./assets/primeflix.png` para exibir 
 - **Excluir**: remove o filme da lista
 - Dados persistidos em `localStorage`
 
+### Busca
+
+- **Página de busca** (`/busca`): campo de texto para buscar filmes pelo nome
+- Resultados em grid com os mesmos cards da home
+- Acesso pelo link "Buscar" no header
+
 ### Outros
 
-- **Header** fixo com logo “Prime Flix” e botão “Meus filmes”
+- **Header** fixo com logo "Prime Flix", link "Buscar", botão "Meus filmes" e alternância modo claro/escuro
 - **Página 404** estilizada com link para voltar à home
-- Design responsivo e tema escuro
+- **Modo claro/escuro**: preferência salva em `localStorage`
+- Design responsivo (tema escuro e claro)
 - Notificações (react-toastify) para sucesso e avisos
 
 ## Como usar
@@ -57,19 +64,21 @@ Adicione uma captura de tela do projeto em `./assets/primeflix.png` para exibir 
    cd primeFlix
    ```
 
-3. Instale as dependências:
+3. (Opcional) Configure a chave da API TMDB: copie `.env.example` para `.env` e preencha `REACT_APP_TMDB_API_KEY`. Sem isso, o app usa uma chave de demonstração.
+
+4. Instale as dependências:
 
    ```bash
    npm install
    ```
 
-4. Inicie o projeto:
+5. Inicie o projeto:
 
    ```bash
    npm start
    ```
 
-5. Acesse no navegador:
+6. Acesse no navegador:
 
    ```
    http://localhost:3000
@@ -102,12 +111,15 @@ A pasta `build` conterá os arquivos otimizados para deploy.
 src/
 ├── components/
 │   └── Header/          # Cabeçalho com logo e link "Meus filmes"
+├── context/
+│   └── ThemeContext.js  # Estado do tema (claro/escuro)
 ├── pages/
 │   ├── Home/            # Página inicial com listas de filmes
 │   ├── ListFilmes/      # Componente de lista em carrossel
 │   ├── MovieCard/       # Card de filme (poster + título)
 │   ├── Filme/           # Página de detalhes do filme
 │   ├── Favoritos/       # Lista de filmes salvos
+│   ├── Busca/           # Página de busca de filmes
 │   └── Erro/            # Página 404
 ├── services/
 │   └── api.js           # Cliente Axios configurado para TMDB
@@ -120,24 +132,25 @@ src/
 
 ## Configuração da API
 
-O projeto usa a [API do The Movie Database (TMDB)](https://www.themoviedb.org/documentation/api). A chave de API está configurada nas requisições em `src/pages/ListFilmes/index.js` e `src/pages/Filme/index.js`. Para uso em produção, considere mover a chave para variáveis de ambiente (ex.: `REACT_APP_TMDB_API_KEY`).
+O projeto usa a [API do The Movie Database (TMDB)](https://www.themoviedb.org/documentation/api). A chave é lida da variável de ambiente `REACT_APP_TMDB_API_KEY`. Copie o arquivo `.env.example` para `.env` e preencha com sua chave; em desenvolvimento, se não houver `.env`, uma chave de demonstração é usada (não recomendado para produção).
 
 ## Funcionalidades principais
 
-- Interface em tema escuro com destaque em teal
-- Navegação entre Home, detalhes do filme e Meus filmes
+- Interface em tema escuro ou claro (alternância no header)
+- Navegação entre Home, Busca, detalhes do filme e Meus filmes
 - Listas de filmes em carrossel responsivo
+- Busca de filmes por nome
 - Salvamento de favoritos no navegador (localStorage)
 - Layout responsivo para desktop e mobile
 - Feedback visual com toasts
 
 ## Roadmap
 
-- [ ] Usar variável de ambiente para a chave da API TMDB
-- [ ] Página de busca de filmes
+- [x] Usar variável de ambiente para a chave da API TMDB
+- [x] Página de busca de filmes
 - [ ] Filtros por gênero ou ano
 - [ ] Suporte a séries (TMDB)
-- [ ] Modo claro/escuro configurável
+- [x] Modo claro/escuro configurável
 - [ ] Testes automatizados (Jest/React Testing Library já no projeto)
 
 ## Status do projeto

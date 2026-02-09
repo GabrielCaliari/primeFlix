@@ -16,7 +16,7 @@ function Filme () {
     async function loadFilme() {
       await api.get(`/movie/${id}`, {
         params: {
-          api_key: "41b1f3e2d5344c88f4603f16bab7a13d",
+          api_key: process.env.REACT_APP_TMDB_API_KEY || "41b1f3e2d5344c88f4603f16bab7a13d",
           language: "pt-BR",
         }
       })
