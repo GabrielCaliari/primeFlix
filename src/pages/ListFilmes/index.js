@@ -60,7 +60,7 @@ const settings = {
 
   return(
       <div className="listaFilmes">
-          <h2 style={{fontSize: "30px", color: 'white'}}>{title}</h2>
+          <h2>{title}</h2>
            <Slider {...settings}>
              {filmes.map((filme) => (
                 <MovieCard key={filme.id} filme={filme}/>

@@ -1,7 +1,85 @@
 .listaFilmes {
-  margin: 20px;
+  margin: 0 0 48px;
+  padding: 0 48px;
 }
 
-.title {
-  padding: 10px;
+.listaFilmes h2 {
+  font-family: var(--font-display);
+  font-size: 1.75rem;
+  letter-spacing: 0.04em;
+  color: var(--text-primary);
+  margin-bottom: 20px;
+  padding-bottom: 8px;
+  border-bottom: 2px solid var(--accent);
+  display: inline-block;
+}
+
+/* Slick overrides */
+.listaFilmes .slick-slider {
+  position: relative;
+}
+
+.listaFilmes .slick-list {
+  margin: 0 -8px;
+  overflow: visible;
+}
+
+.listaFilmes .slick-slide {
+  padding: 0 8px;
+}
+
+.listaFilmes .slick-prev,
+.listaFilmes .slick-next {
+  width: 48px;
+  height: 48px;
+  z-index: 2;
+  background: rgba(26, 26, 26, 0.9) !important;
+  border-radius: 50%;
+  border: 1px solid var(--border-subtle);
+  transition: background 0.2s ease, transform 0.2s ease;
+}
+
+.listaFilmes .slick-prev:hover,
+.listaFilmes .slick-next:hover {
+  background: var(--accent) !important;
+}
+
+.listaFilmes .slick-prev {
+  left: -24px;
+}
+
+.listaFilmes .slick-next {
+  right: -24px;
+}
+
+.listaFilmes .slick-prev:before,
+.listaFilmes .slick-next:before {
+  color: var(--text-primary);
+  font-size: 22px;
+  opacity: 1;
+}
+
+.listaFilmes .slick-prev:hover:before,
+.listaFilmes .slick-next:hover:before {
+  color: var(--bg-primary);
+}
+
+@media (max-width: 600px) {
+  .listaFilmes {
+    padding: 0 20px 32px;
+  }
+  .listaFilmes h2 {
+    font-size: 1.4rem;
+  }
+  .listaFilmes .slick-prev,
+  .listaFilmes .slick-next {
+    width: 36px;
+    height: 36px;
+  }
+  .listaFilmes .slick-prev {
+    left: -8px;
+  }
+  .listaFilmes .slick-next {
+    right: -8px;
+  }
 }

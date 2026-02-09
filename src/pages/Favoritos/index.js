@@ -31,13 +31,10 @@ function Favoritos ({filme}) {
         {filmes.map((item) => {
           return (
             <li key={item.id}>
-                <img src={`https://image.tmdb.org/t/p/original/${item.backdrop_path}`} alt={item.title}
-                style={{ width: '300px', height: '200px', objectFit: 'contain', borderRadius: '10px', marginRight: '10px', objectPosition: 'center' }}
-                />
+                <img src={`https://image.tmdb.org/t/p/w500/${item.backdrop_path}`} alt={item.title} />
               <span>{item.title}</span>
-
               <div>
-                <Link to={`/filme/${item.id}`} style={{ marginRight: '20px' }}>Ver detalhes</Link>
+                <Link to={`/filme/${item.id}`}>Ver detalhes</Link>
                 <button onClick={() => excluirFilme(item.id)} >Excluir</button>
               </div>
             </li>

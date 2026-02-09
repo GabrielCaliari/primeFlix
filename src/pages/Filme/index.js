@@ -52,12 +52,13 @@ function Filme () {
       toast.success("Filme salvo com sucesso!")
   }
 
-  if(loading){
-   return (
-      <div className="filme-info">
-        <h1>Carregando detalhes...</h1>
+  if (loading) {
+    return (
+      <div className="filme-info filme-loading">
+        <div className="loading-spinner" />
+        <p>Carregando detalhes...</p>
       </div>
-    )
+    );
   }
 
   return(
