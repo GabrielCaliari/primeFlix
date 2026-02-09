@@ -1,70 +1,154 @@
-# Getting Started with Create React App
+# Prime Flix
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+![React](https://img.shields.io/badge/React-20232A?style=for-the-badge&logo=react&logoColor=61DAFB)
+![JavaScript](https://img.shields.io/badge/JavaScript-F7DF1E?style=for-the-badge&logo=javascript&logoColor=black)
+![CSS3](https://img.shields.io/badge/CSS3-1572B6?style=for-the-badge&logo=css3&logoColor=white)
+![Axios](https://img.shields.io/badge/Axios-5A29E4?style=for-the-badge&logo=axios&logoColor=white)
+![TMDB](https://img.shields.io/badge/TMDB-01B4E4?style=for-the-badge&logo=themoviedatabase&logoColor=white)
 
-## Available Scripts
+Plataforma de filmes para explorar catálogo, ver detalhes e salvar favoritos. Desenvolvida com React (Create React App) e dados da API do The Movie Database (TMDB).
 
-In the project directory, you can run:
+## Demonstração
 
-### `npm start`
+Adicione uma captura de tela do projeto em `./assets/primeflix.png` para exibir aqui.
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+## Funcionalidades
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+### Página inicial (Home)
 
-### `npm test`
+- **Melhor avaliação**: filmes com melhor nota no TMDB
+- **Em cartaz**: filmes em exibição nos cinemas
+- **Populares**: filmes mais populares no momento
+- **Em breve**: próximos lançamentos
+- Carrossel com setas de navegação e cards com poster e título
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+### Detalhes do filme
 
-### `npm run build`
+- Poster/backdrop, título, sinopse e avaliação (nota /10)
+- **Salvar**: adiciona o filme à lista “Meus filmes” (armazenada no navegador)
+- **Trailer**: link para busca do trailer no YouTube
+- Feedback com notificações (toast) ao salvar
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+### Meus filmes (Favoritos)
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+- Lista de filmes salvos pelo usuário
+- **Ver detalhes**: abre a página do filme
+- **Excluir**: remove o filme da lista
+- Dados persistidos em `localStorage`
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+### Outros
 
-### `npm run eject`
+- **Header** fixo com logo “Prime Flix” e botão “Meus filmes”
+- **Página 404** estilizada com link para voltar à home
+- Design responsivo e tema escuro
+- Notificações (react-toastify) para sucesso e avisos
 
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
+## Como usar
 
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+1. Clone o repositório:
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
+   ```bash
+   git clone https://github.com/SEU_USUARIO/primeFlix.git
+   ```
 
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
+2. Entre na pasta do projeto:
 
-## Learn More
+   ```bash
+   cd primeFlix
+   ```
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+3. Instale as dependências:
 
-To learn React, check out the [React documentation](https://reactjs.org/).
+   ```bash
+   npm install
+   ```
 
-### Code Splitting
+4. Inicie o projeto:
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
+   ```bash
+   npm start
+   ```
 
-### Analyzing the Bundle Size
+5. Acesse no navegador:
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
+   ```
+   http://localhost:3000
+   ```
 
-### Making a Progressive Web App
+### Build para produção
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
+```bash
+npm run build
+```
 
-### Advanced Configuration
+A pasta `build` conterá os arquivos otimizados para deploy.
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
+## Tecnologias
 
-### Deployment
+- **React** 18 – interface e componentes
+- **Create React App** (react-scripts) – build e dev server
+- **React Router DOM** – rotas (Home, Filme, Favoritos, 404)
+- **Axios** – requisições à API do TMDB
+- **react-slick** + **slick-carousel** – carrossel das listas de filmes
+- **react-toastify** – notificações na interface
+- **JavaScript** – lógica da aplicação
+- **CSS3** – estilos, variáveis, responsividade
+- **HTML5** – estrutura
+- **API TMDB** – dados de filmes (posters, sinopse, avaliação, etc.)
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
+## Estrutura do projeto
 
-### `npm run build` fails to minify
+```
+src/
+├── components/
+│   └── Header/          # Cabeçalho com logo e link "Meus filmes"
+├── pages/
+│   ├── Home/            # Página inicial com listas de filmes
+│   ├── ListFilmes/      # Componente de lista em carrossel
+│   ├── MovieCard/       # Card de filme (poster + título)
+│   ├── Filme/           # Página de detalhes do filme
+│   ├── Favoritos/       # Lista de filmes salvos
+│   └── Erro/            # Página 404
+├── services/
+│   └── api.js           # Cliente Axios configurado para TMDB
+├── App.js
+├── App.css
+├── index.js
+├── index.css             # Variáveis de tema e estilos globais
+└── routes.js             # Configuração das rotas
+```
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+## Configuração da API
+
+O projeto usa a [API do The Movie Database (TMDB)](https://www.themoviedb.org/documentation/api). A chave de API está configurada nas requisições em `src/pages/ListFilmes/index.js` e `src/pages/Filme/index.js`. Para uso em produção, considere mover a chave para variáveis de ambiente (ex.: `REACT_APP_TMDB_API_KEY`).
+
+## Funcionalidades principais
+
+- Interface em tema escuro com destaque em teal
+- Navegação entre Home, detalhes do filme e Meus filmes
+- Listas de filmes em carrossel responsivo
+- Salvamento de favoritos no navegador (localStorage)
+- Layout responsivo para desktop e mobile
+- Feedback visual com toasts
+
+## Roadmap
+
+- [ ] Usar variável de ambiente para a chave da API TMDB
+- [ ] Página de busca de filmes
+- [ ] Filtros por gênero ou ano
+- [ ] Suporte a séries (TMDB)
+- [ ] Modo claro/escuro configurável
+- [ ] Testes automatizados (Jest/React Testing Library já no projeto)
+
+## Status do projeto
+
+![GitHub stars](https://img.shields.io/github/stars/SEU_USUARIO/primeFlix?style=for-the-badge&logo=github&logoColor=white)
+![GitHub forks](https://img.shields.io/github/forks/SEU_USUARIO/primeFlix?style=for-the-badge&logo=github&logoColor=white)
+![GitHub issues](https://img.shields.io/github/issues/SEU_USUARIO/primeFlix?style=for-the-badge&logo=github&logoColor=white)
+![GitHub pull requests](https://img.shields.io/github/issues-pr/SEU_USUARIO/primeFlix?style=for-the-badge&logo=github&logoColor=white)
+
+Substitua `SEU_USUARIO` pelo seu usuário do GitHub nos badges e no link de clone.
+
+## Licença
+
+Este projeto está sob a licença MIT. Veja o arquivo [LICENSE](LICENSE) para mais detalhes.
