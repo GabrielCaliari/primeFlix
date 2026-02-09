@@ -10,7 +10,9 @@ Plataforma de filmes para explorar catálogo, ver detalhes e salvar favoritos. D
 
 ## Demonstração
 
-Adicione uma captura de tela do projeto em `./assets/primeflix.png` para exibir aqui.
+<p align="center">
+  <img alt="Prime Flix" src="./assets/primeflix.png" width="100%">
+</p>
 
 ## Funcionalidades
 
